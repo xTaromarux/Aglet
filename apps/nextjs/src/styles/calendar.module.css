@@ -1,0 +1,18 @@
+.DateCalendar span,
+.DateCalendar button {
+  color: white !important;
+}
+
+.DateCalendar
+  > .MuiPickersFadeTransitionGroup-root
+  > div
+  > div
+  > .MuiPickersSlideTransition-root
+  > .MuiDayCalendar-monthContainer {
+  padding-top: 50px;
+}
+
+.DateCalendar .calendarMiniIcon {
+  margin-top: 10px;
+  color: #f49943 !important;
+}

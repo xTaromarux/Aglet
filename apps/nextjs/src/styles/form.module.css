@@ -1,0 +1,51 @@
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 0 20px;
+  border-radius: 6px;
+  background-color: #11151c;
+  /* background-color: yellowgreen; */
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.label {
+  margin-top: 0.3em;
+  color: #fefefe;
+  font-weight: lighter;
+}
+
+.input {
+  border-radius: 0px;
+  outline: none;
+  background-color: #11151c;
+  border-bottom: 3px solid #fefefe;
+  color: #fefefe;
+  padding: 2px;
+}
+
+.input::placeholder {
+  font-size: 1.2em;
+  font-weight: lighter;
+  color: #bbb;
+}
+
+.email,
+.password {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.container_for_img {
+  border-bottom: 3px solid #fefefe;
+  border-radius: 0;
+}

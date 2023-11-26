@@ -1,3 +1,116 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: "#11151C";
+}
+
+.table {
+  border-spacing: 0 15px;
+}
+
+.table tr {
+  border-radius: 20px;
+}
+
+tr td:nth-child(n + 5),
+tr th:nth-child(n + 5) {
+  border-radius: 0 0.625rem 0.625rem 0;
+}
+
+tr td:nth-child(1),
+tr th:nth-child(1) {
+  border-radius: 0.625rem 0 0 0.625rem;
+}
+
+.transition-background {
+  transition: background-color 0.3s ease;
+}
+
+.privacy-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e6af2e;
+  z-index: 2;
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes entranceBackdrop {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes leaving {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes leavingBackdrop {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.5);
+  animation: entranceBackdrop 300ms ease-in-out;
+}
+
+dialog {
+  border-radius: 12px;
+  border: none;
+  text-align: left;
+  padding: 20px;
+  animation: entrance 300ms ease-in-out;
+  animation-fill-mode: forwards;
+  overflow: hidden;
+  box-shadow: 0px 30px 70px 0px rgba(0, 0, 0, 0.4);
+}
+
+dialog.close {
+  animation: leaving 300ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+dialog.close::backdrop {
+  animation: leavingBackdrop 300ms ease-in-out;
+  animation-fill-mode: forwards;
+}

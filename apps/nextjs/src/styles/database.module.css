@@ -1,0 +1,32 @@
+.wrapper {
+  height: 100%;
+}
+
+.modalh2 {
+  display: flex;
+  justify-content: center;
+  font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 2em;
+  font-weight: lighter;
+  color: #222;
+}
+
+.submit {
+  width: 100%;
+}
+
+.button {
+  width: 65px;
+  height: 65px;
+  cursor: pointer;
+  padding: 0.938em;
+  border: none;
+  border-radius: 50%;
+  color: #fefefe;
+}
+
+.button:hover {
+  /* background-color: #c49427; */
+  color: #fefefe;
+}
