@@ -1,5 +1,4 @@
 import Card from "../../components/CardComponent";
-import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { trpc } from "../../utils/trpc";
 import { Words } from "@acme/db";
@@ -50,32 +49,30 @@ export default function Home() {
         className=" text-textGrey relative flex h-full w-full justify-center overflow-clip pt-40"
         style={{ backgroundColor: "#11151C" }}
       >
-        <AnimatePresence>
-          {cards === null ? (
-            0
-          ) : cards.length ? (
-            cards.map((card, index) => (
-              <Card
-                key={card.id}
-                data={card}
-                active={index === activeIndex}
-                removeCard={removeCard}
-              />
-            ))
-          ) : (
-            <>
-              <h2 className="pb-24 text-4xl font-extrabold text-white">
-                Congratulations
-              </h2>
-              <Card
-                key="last"
-                data={lastCardData}
-                active={true}
-                removeCard={removeCard}
-              />
-            </>
-          )}
-        </AnimatePresence>
+        {cards === null ? (
+          0
+        ) : cards.length ? (
+          cards.map((card, index) => (
+            <Card
+              key={card.id}
+              data={card}
+              active={index === activeIndex}
+              removeCard={removeCard}
+            />
+          ))
+        ) : (
+          <>
+            <h2 className="pb-24 text-4xl font-extrabold text-white">
+              Congratulations
+            </h2>
+            <Card
+              key="last"
+              data={lastCardData}
+              active={true}
+              removeCard={removeCard}
+            />
+          </>
+        )}
       </div>
     </PageLayout>
   );
