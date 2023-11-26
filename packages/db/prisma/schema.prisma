@@ -1,17 +1,43 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-    provider = "prisma-client-js"
-}
-
 datasource db {
-    provider = "sqlite"
-    url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-model Post {
-    id      String @id @default(cuid())
-    title   String
-    content String
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Words {
+  id                      String   @id @default(cuid())
+  person                  Person   @relation(fields: [personId], references: [id])
+  personId                String
+  word                    String
+  wordFromCountry         String
+  translation             String
+  translationFromCountry  String
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+  @@index([personId])
+}
+
+model Countries {
+  id        String   @id @default(cuid())
+  name      String
+  imageSrc  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Person {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  words     Words[]
 }
